@@ -6,5 +6,9 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  /* background-color: #3d070c; */
+  background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-color: #855E42;
+  color: aliceblue;
 }
