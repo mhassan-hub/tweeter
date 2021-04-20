@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  // --- our code goes here ---
-  let charLimit = 140; 
+
   const textArea = $('.new-tweet form textarea');
   console.log(textArea);
 
