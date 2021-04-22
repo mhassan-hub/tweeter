@@ -55,8 +55,9 @@ const createTweetElement = function (tweetObj) {
 }
 
 const renderTweets = function(tweets) {
+
   for (const tweet of tweets) {
-    $('.tweet-display').append(createTweetElement(tweet));
+    $('.tweet-display').prepend(createTweetElement(tweet));
   }
 }
 
@@ -64,30 +65,41 @@ const loadTweets = function () {
 
   $.ajax('/tweets', {dataType: "json", method: "GET"})
   .then(function (data) {
-    // console.log(data);
     renderTweets(data);
   })
 }
 
+const getNewTweets = function () {
+
+  $.ajax('/tweets', {dataType: "json", method: "GET"})
+  .then(function (data) {
+    renderTweets([data[data.length - 1]]);
+  })
+}
+
 $(document).ready(function() {
+
   loadTweets();
   $("#tweet-form").on("submit", function (event) {
-    
+
     event.preventDefault();
-    const tweetLength = $("#tweet-form textarea")[0].value.length;
-    // console.log( $(this).children('textarea')[0].value);
-    console.log(tweetLength);
+    const tweetLength = event.target[0].value.length;
+    
     if (!tweetLength) {
       alert("Your tweet is either empty or null")
     }
-
+    
     if ( tweetLength > 140) {
       alert('Your tweet exceeded the maximum allowed characters')
     }
-
+    
     const serialData = $(this).serialize()
     $.post("/tweets", serialData)
+    .then (() => {
+                                         
+      getNewTweets();
+    })
 
   })
-  // timeago.render(document.querySelectorAll('.timeago'));
 });
+// timeago.render(document.querySelectorAll('.timeago'));
