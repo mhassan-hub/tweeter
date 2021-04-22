@@ -29,19 +29,25 @@
 //     "created_at": 1461113959088
 //   }
 // ]
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function (tweetObj) {
   const userName = tweetObj.user.name
   const avatar = tweetObj.user.avatars
   const handle = tweetObj.user.handle
   const text = tweetObj.content.text
- 
+  const safeHTML = escape(text)
+  
   const tweet = $(` <article>
   <header>
   <div><img class="avatar" src= "${avatar}"></img> ${userName}</div>
   <i>${handle}</i>
   </header>
-  <p class="twitter-display">${text}</p>
+  <p class="twitter-display">${safeHTML}</p>
   <footer>
   <time class="timeago" datetime="new Date">10 days ago</time>
   <div>
