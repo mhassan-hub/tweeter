@@ -16,10 +16,51 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #f4eee8;
   font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#top-page {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+
+  height: 75px;
+  width: 75px;
+  border-style: hidden;
+
+  font-size: 2.5rem;
+  color: 	lightcoral;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* for desktops or bigger */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  main {
+    margin-right: 2em;
+    margin-left: 2em;
+    margin-top: 7em;
+  }
+}
