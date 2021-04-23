@@ -3,6 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -22,7 +23,7 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.full.min.js" integrity="sha512-wb3lqal2VtYhmlPAr232VP+Zus676CFAEYdywxIUSxG6F/X9WhN6SpREkWUdwBvMpd6gCKuKTGHhdum6m1wOvQ==" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -30,55 +31,63 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav style="z-index: -1">
+    <nav>
       <span>tweeter</span>
-      <h5>Write a new tweet 
-        <i class="fas fa-angle-double-down"></i> 
-      </h5>
+
+      <div id="write-new-tweet"> 
+        <p><b>Write</b> a new tweet</p>
+        <i id="double-down"class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
+
     <header class="page-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
+
       <div>
-          <h2>General Iroh 🔥</h2>
+          <h2>General Iroh</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div class="error-max" style="display: none">
+          <i class="fas fa-exclamation-circle"></i>
+
+          <h2>Error: Tweet exceeded the maximum allowed characters</h2>
+
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+
+        <div class="error-empty" style="display: none">
+          <i class="fas fa-exclamation-circle"></i>
+
+          <h2>Error: Tweet cannot be empty!</h2>
+
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+
+        <form id="tweet-form" method="POST" action="/tweets">
           <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
+
           <div>
             <button type="submit">Tweet</button>
+
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <section class="tweet">
-        <article>
-          <header>
-            <i><i class="fas fa-user-astronaut"></i> Username</i>
-            <i>@handle</i>
-          </header>
-          <p class="display-tweet">My tweet here</p>
-          <footer>
-            <time class="timeago" datetime="new Date"></time>
-            <div>
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-retweet"></i>
-              <i class="fas fa-heart"></i>
-            </div>
-          </footer>
-        </article>
+
+      <section class="tweet-display">
       </section>
-      <!-- <h2>Troy and Abed in the morning</h2>
-      <p>Hey there buddy</p> 
-      <h1>Tweet now!</h1> -->
-    </main>
+    </main> 
+
+    <button id="top-page" style="display: none">
+      <i class="far fa-caret-square-up"></i>
+    </button>
   </body>
 </html>
