@@ -1,6 +1,6 @@
 form {
   width: 100%;
-  background-color: inherit;
+  margin: 1em;
 }
 
 form div {
@@ -19,6 +19,7 @@ form textarea {
   padding: 0%;
   height: 40px;
   width: inherit;
+  padding: 0.5em;
   background-color: inherit;
   border-style: hidden;
   border-bottom: solid;
@@ -30,4 +31,40 @@ main section {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.75em;
 }
+
+.error-empty {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size: 0.75em;
+  background-color: inherit;
+  color: red;
+  border: solid;
+  border-color: red;
+  margin: 1em;
+}
+
+section i {
+  margin: 1em;
+}
+
+.error-max {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+
+  margin: 1em;
+  border: solid;
+  border-color: red;
+  
+  font-size: 0.75em;
+  
+  color: red;
+  background-color: inherit;
+}
+

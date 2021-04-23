@@ -1,9 +1,3 @@
-.tweet {
-
-  background-color: inherit;
-
-}
-
 article {
   display: flex;
   flex-direction: column;
@@ -12,36 +6,18 @@ article {
   font-family: 'Source Sans Pro', sans-serif;
   border: solid;
   padding: 1em;
-}
-article:hover {
-  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5)
+  margin: 0.75em;
 }
 
-article:hover {
-  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5)
-}
-.fas:hover {
-  color: goldenrod;
-  cursor: pointer;
-}
-.display-tweet {
-  height: 40px;
-
-  border-style: hidden;
-  border-bottom: solid;
-}
-
-article header{
+article header{ 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
-  background-color: #f4f1ec;
   color: black;
-
   height: 40px;
 }
-
 article footer {
   display:flex;
   flex-direction: row;
@@ -50,10 +26,58 @@ article footer {
   font-size: 15px;
 }
 
-/* main section header {
-bac
+.twitter-display {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 600px;
+  padding: 0.5em;
+  border-style: hidden;
+  border-bottom: solid;
+  margin: 0.5em;
 }
 
-main section footer {
-  
-} */
+.user {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-weight: bold;
+}
+
+article:hover {
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5)
+}
+
+.fas:hover {
+  color: goldenrod;
+  cursor: pointer;
+}
+
+
+/* for iphoneX or bigger */
+@media (max-width: 375px) {
+  article header{
+    flex-direction: column;
+    height: 100%;
+  }
+  .avatar-handle {
+    margin:0.5em;
+  }
+  .twitter-display {
+    /* padding: 0; */
+    flex-wrap: wrap;
+    
+  }
+  .user {
+    display: flex;
+
+    justify-content: space-around;
+    /* align-items:  ; */
+  }
+
+  nav p {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin: 0;
+  }
+}
