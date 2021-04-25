@@ -14,11 +14,12 @@ This repository is the starter code for the project: Students will fork and clon
 ## Final Product
 
 !["A demo  of the Desktop version!"](https://github.com/mhassan-hub/tweeter/blob/master/docs/Desktop-version.png?raw=true)
-!["Showing the character limit counter"](https://github.com/mhassan-hub/tweeter/blob/master/docs/Scroll-tweetCounter-demo.png?raw=true)
+!["Showcasing the character limit counter"](https://github.com/mhassan-hub/tweeter/blob/master/docs/Scroll-tweetCounter-demo.png?raw=true)
 
 ## Dependencies
 
 - Express
+- Node 5.10.x or above
 - Chance
 - Body-parcer
-- Node 5.10.x or above
+- md5
