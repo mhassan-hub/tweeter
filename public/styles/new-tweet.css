@@ -68,3 +68,6 @@ section i {
   background-color: inherit;
 }
 
+.error-red {
+  color: red;
+}
