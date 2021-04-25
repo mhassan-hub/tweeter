@@ -10,9 +10,9 @@ $(document).ready(function() {
 
     tweetCount[0].innerText = charAvailable
     if (charAvailable < 0) {
-      tweetCount.css('color', 'red')
+      tweetCount.addClass('error-red');
     } else {
-      tweetCount.css('color', 'inherit')
+      tweetCount.removeClass('error-red');
     }
   });
 
