@@ -3,18 +3,18 @@ $(document).ready(function() {
   loadTweets();
   toTopOfPage();
 
-  $("#tweet-form").on("submit", function (event) {
+  $("#tweet-form").on("submit", function(event) {
     
     event.preventDefault();
 
-    const serialData = $(this).serialize()
+    const serialData = $(this).serialize();
 
-    let tweetText = $('#tweet-text').val()
+    const tweetText = $('#tweet-text').val();
     $(".error-max").hide();
     $(".error-empty").hide();
 
     if (tweetText.length > 140) {
-      $( ".error-max" ).slideDown( "slow", function() {
+      $(".error-max").slideDown("slow", function() {
         $(".error-max").show();
       });
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
 
     if (tweetText.length === 0) {
-      $( ".error-empty" ).slideDown( "slow", function() {
+      $(".error-empty").slideDown("slow", function() {
         $(".error-empty").show();
       });
 
@@ -30,10 +30,10 @@ $(document).ready(function() {
     }
 
     $.post("/tweets", serialData)
-    .then (() => {
-      getNewTweets();
-    })
+      .then(() => {
+        getNewTweets();
+      });
     $('#tweet-text').val('');
-    $('.counter').text(140)
-  })
+    $('.counter').text(140);
+  });
 });

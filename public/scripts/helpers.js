@@ -1,19 +1,19 @@
 /*----------------- Client-side JS -----------------*/
 
 /*------------ Prevent script injection ------------*/
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
 /*------------------ Create tweet ------------------*/
-const createTweetElement = function (tweetObj) {
-  const userName = tweetObj.user.name
-  const avatar = tweetObj.user.avatars
-  const handle = tweetObj.user.handle
-  const text = tweetObj.content.text
-  const safeHTML = escape(text)
+const createTweetElement = function(tweetObj) {
+  const userName = tweetObj.user.name;
+  const avatar = tweetObj.user.avatars;
+  const handle = tweetObj.user.handle;
+  const text = tweetObj.content.text;
+  const safeHTML = escape(text);
   const time = timeago.format(tweetObj.created_at);
   
   const tweet = $(`
@@ -35,7 +35,7 @@ const createTweetElement = function (tweetObj) {
       </div>
     </footer> 
   </article>
-  `); 
+  `);
   return tweet;
 };
 
@@ -50,35 +50,35 @@ const renderTweets = function(tweets) {
 };
 
 /*--------------- Render tweets using AJAX ---------------*/
-const loadTweets = function () {
+const loadTweets = function() {
   
   $.ajax('/tweets', {dataType: "json", method: "GET"})
-  .then(function (data) {
-    renderTweets(data);
-  })
+    .then(function(data) {
+      renderTweets(data);
+    });
 };
 /*------------- Render new tweet using AJAX -------------*/
-const getNewTweets = function () {
+const getNewTweets = function() {
 
   $.ajax('/tweets', {dataType: "json", method: "GET"})
-  .then(function (data) {
-    renderTweets([data[data.length - 1]]);
-  })
+    .then(function(data) {
+      renderTweets([data[data.length - 1]]);
+    });
 };
 
 /*-------- Show button when after scrolling 400 --------*/
-const toTopOfPage = function () {
-  $(window).on("scroll", function () {
+const toTopOfPage = function() {
+  $(window).on("scroll", function() {
 
-    if ($(window).scrollTop() >= 400){
+    if ($(window).scrollTop() >= 400) {
       $("#top-page").show();
   
-      $("#top-page").on("click", function () {
+      $("#top-page").on("click", function() {
         $(window).scrollTop(0);
-      })
+      });
     } else {
       $("#top-page").hide();
     }
-  })
-}
+  });
+};
 
