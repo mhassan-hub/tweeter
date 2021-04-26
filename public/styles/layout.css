@@ -59,8 +59,13 @@ main {
   }
 
   main {
-    margin-right: 2em;
+    margin-right: 2.5em;
     margin-left: 2em;
     margin-top: 7em;
+  }
+
+  #top-page {
+    right: 0rem;
+    bottom: 0rem;
   }
 }
