@@ -17,6 +17,7 @@
 
 @media (min-width: 1024px) {
   .page-header {
+    width: 50%;
     border-radius: 2em;
     margin-top: 7em;
     margin-left: 2em;
