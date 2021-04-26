@@ -57,6 +57,7 @@ const loadTweets = function() {
       renderTweets(data);
     });
 };
+
 /*------------- Render new tweet using AJAX -------------*/
 const getNewTweets = function() {
 
@@ -70,6 +71,8 @@ const getNewTweets = function() {
 const toTopOfPage = function() {
   $(window).on("scroll", function() {
 
+    // If window falls below 400 (the height of the header)
+    // the toTopOfPage button will appear
     if ($(window).scrollTop() >= 400) {
       $("#top-page").show();
   
