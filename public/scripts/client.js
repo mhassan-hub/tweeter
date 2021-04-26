@@ -1,6 +1,7 @@
 $(document).ready(function() {
   
   loadTweets();
+  // toTopOfPage button
   toTopOfPage();
 
   $("#tweet-form").on("submit", function(event) {
@@ -10,9 +11,14 @@ $(document).ready(function() {
     const serialData = $(this).serialize();
 
     const tweetText = $('#tweet-text').val();
+    // error messages are hidden by default
+    // maximum character error
     $(".error-max").hide();
+    
+    // empty array  error
     $(".error-empty").hide();
 
+    // Tweet validation
     if (tweetText.length > 140) {
       $(".error-max").slideDown("slow", function() {
         $(".error-max").show();
@@ -33,6 +39,8 @@ $(document).ready(function() {
       .then(() => {
         getNewTweets();
       });
+    
+    // Resetting textbox and character counter
     $('#tweet-text').val('');
     $('.counter').text(140);
   });
