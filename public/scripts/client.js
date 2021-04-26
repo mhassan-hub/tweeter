@@ -34,5 +34,6 @@ $(document).ready(function() {
       getNewTweets();
     })
     $('#tweet-text').val('');
+    $('.counter').text(140)
   })
 });
