@@ -33,5 +33,6 @@ $(document).ready(function() {
     .then (() => {
       getNewTweets();
     })
+    $('#tweet-text').val('');
   })
 });
